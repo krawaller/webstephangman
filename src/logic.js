@@ -1,4 +1,8 @@
 export function hangman(guess, currentState) {
+  if (!guess || currentState.guesses.includes(guess)) {
+    // ignore duplicate and empty guesses
+    return currentState;
+  }
   return {
     ...currentState,
     guesses: currentState.guesses.concat(guess)
