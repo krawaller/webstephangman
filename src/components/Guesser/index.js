@@ -14,6 +14,7 @@ export const Guesser = props => {
         disabled={props.disabled}
         id="guess"
         placeholder="Guess letter or word"
+        autoComplete="off"
       />
     </form>
   );
