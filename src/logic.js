@@ -29,5 +29,7 @@ export function getNumberOfErrors(state) {
 export function getStatus(state) {
   if (getNumberOfErrors(state) === state.maxGuesses - 1) return "lost";
   if (state.guesses.includes(state.answer)) return "won";
+  if (state.answer.split("").every(letter => state.guesses.includes(letter)))
+    return "won";
   return "playing";
 }
