@@ -1,6 +1,11 @@
 import React from "react";
 
-const letterStyle = { fontSize: "60px", margin: "3px" };
+const letterStyle = {
+  fontSize: "60px",
+  margin: "3px",
+  fontFamily: "monospace",
+  backgroundColor: "#CCC"
+};
 
 export const Word = props => {
   return (
