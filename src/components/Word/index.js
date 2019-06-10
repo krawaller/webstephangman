@@ -18,5 +18,3 @@ export const Word = props => {
     </div>
   );
 };
-
-// bit.ly/webstephangman
