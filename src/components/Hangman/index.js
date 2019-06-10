@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { hangman, getLetters, getNumberOfErrors } from "../../logic";
+import { hangman, getLetters, getNumberOfErrors, getStatus } from "../../logic";
 
 import { Gallow } from "../Gallow";
 import { Guesser } from "../Guesser";
@@ -16,13 +16,11 @@ export const Hangman = props => {
 
   const makeGuess = guess => setState(hangman(guess, state));
   const nbrOfErrors = getNumberOfErrors(state);
+  const status = getStatus(state);
 
   return (
     <div>
-      <Guesser
-        guess={makeGuess}
-        disabled={nbrOfErrors === state.maxGuesses - 1}
-      />
+      <Guesser guess={makeGuess} disabled={status !== "playing"} />
       <Word letters={getLetters(state)} />
       <Gallow nbrOfErrors={nbrOfErrors} />
       <Guesses guesses={state.guesses} />

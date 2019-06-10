@@ -1,9 +1,3 @@
-// const state = {
-//   maxGuesses: 5,
-//   guesses: ["a", "e", "aeroplane"],
-//   answer: "aeroflot"
-// };
-
 export function hangman(guess, currentState) {
   return {
     ...currentState,
@@ -23,4 +17,10 @@ export function getNumberOfErrors(state) {
   return state.guesses.filter(guess =>
     guess.length === 1 ? !state.answer.includes(guess) : state.answer !== guess
   ).length;
+}
+
+export function getStatus(state) {
+  if (getNumberOfErrors(state) === state.maxGuesses - 1) return "lost";
+  if (state.guesses.includes(state.answer)) return "won";
+  return "playing";
 }
